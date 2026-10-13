@@ -1,0 +1,32 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+}
+
+.logo__img {
+  width: auto;
+  height: 42px;
+}
+
+.logo--light {
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--white);
+}
+.logo--light .logo__img {
+  height: 40px;
+}
+
+@media (max-width: 600px) {
+  .logo:not(.logo--light) .logo__img {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 380px) {
+  .logo--light .logo__img {
+    height: 34px;
+  }
+}

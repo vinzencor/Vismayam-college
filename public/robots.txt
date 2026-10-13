@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /vismayam/
+
+Sitemap: https://vismayamcollege.com/sitemap.xml

@@ -1,0 +1,421 @@
+.enquiry {
+  display: grid;
+  gap: 24px;
+  padding: clamp(24px, 3vw, 36px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.enquiry--full {
+  gap: 28px;
+  padding: clamp(24px, 3.4vw, 44px);
+  box-shadow: var(--shadow-lg);
+}
+
+.enquiry__head {
+  display: grid;
+  gap: 8px;
+}
+
+.enquiry__title {
+  font-size: clamp(22px, 2vw, 28px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.enquiry__subtitle {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.enquiry__progress {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+}
+.enquiry__progress span {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--pill);
+  background: var(--line);
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+.enquiry__progress span.is-done {
+  width: 28px;
+  background: var(--red);
+}
+
+.enquiry__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px 16px;
+}
+.enquiry--full .enquiry__grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* ----- Fields ----- */
+.field {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.field--wide {
+  grid-column: 1 / -1;
+}
+
+.field > label,
+.field > legend {
+  padding: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.field > legend {
+  margin-bottom: 10px;
+}
+.enquiry--full .field > label,
+.enquiry--full .field > legend {
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.field input[type='text'],
+.field input[type='tel'],
+.field select {
+  width: 100%;
+  height: 54px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--blush);
+  font-size: 15px;
+  color: var(--ink);
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+.enquiry--full .field input[type='text'],
+.enquiry--full .field input[type='tel'],
+.enquiry--full .field select {
+  height: 56px;
+  border-radius: 14px;
+  background: var(--mist-2);
+}
+
+.field input::placeholder {
+  color: var(--subtle);
+}
+
+.field input:hover,
+.field select:hover {
+  border-color: #dcd6e0;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--red);
+  background: var(--white);
+  box-shadow: 0 0 0 4px rgba(253, 24, 67, 0.1);
+}
+
+.field.has-error input,
+.field.has-error select {
+  border-color: var(--red);
+  background: var(--red-25);
+}
+
+.field__error {
+  font-size: 13px;
+  color: var(--red-600);
+}
+
+.field__select {
+  position: relative;
+}
+.field__select select {
+  appearance: none;
+  padding-right: 44px;
+  cursor: pointer;
+  color: var(--subtle);
+}
+.field__select select.has-value {
+  color: var(--ink);
+}
+.field__select select option {
+  color: var(--ink);
+}
+.field__select svg {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  color: var(--text);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* ----- Contact mode options ----- */
+.mode-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.mode-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 54px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--blush);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+}
+.mode-option:hover {
+  border-color: #dcd6e0;
+}
+.mode-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.mode-option:has(input:focus-visible) {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+/* Compact (home) — WhatsApp selected is green, like the design */
+.enquiry--compact .mode-option.is-selected {
+  border-color: var(--green);
+  background: var(--green-25);
+  color: var(--green);
+  font-weight: 600;
+}
+.enquiry--compact .mode-option--call.is-selected {
+  border-color: var(--red);
+  background: var(--red-25);
+  color: var(--red);
+}
+
+/* Full (contact) — radio cards with red selection */
+.enquiry--full .mode-option {
+  height: 56px;
+  border-radius: 14px;
+  background: var(--mist-2);
+}
+.enquiry--full .mode-option.is-selected {
+  border-color: var(--red);
+  background: var(--red-25);
+  color: var(--red);
+  font-weight: 600;
+}
+
+.mode-option__radio {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid #cfc9d4;
+  border-radius: 50%;
+  background: var(--white);
+}
+.mode-option.is-selected .mode-option__radio {
+  border-color: var(--red);
+}
+.mode-option.is-selected .mode-option__radio::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--red);
+}
+
+/* ----- Consent ----- */
+.consent {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 12.5px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  line-height: 1.55;
+  color: var(--muted) !important;
+  cursor: pointer;
+}
+.consent input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.consent__box {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border: 1.5px solid #cfc9d4;
+  border-radius: 6px;
+  background: var(--white);
+  color: transparent;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.consent input:checked + .consent__box {
+  border-color: var(--red);
+  background: var(--red);
+  color: var(--white);
+}
+.consent input:focus-visible + .consent__box {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+/* ----- Footer bits ----- */
+
+.enquiry__fineprint {
+  margin-top: -6px;
+  font-size: 12px;
+  text-align: center;
+  color: var(--subtle);
+}
+
+.enquiry__secure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: -8px;
+  font-size: 12.5px;
+  color: var(--subtle);
+}
+.enquiry__secure svg {
+  color: var(--green);
+}
+
+.enquiry__alert {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--red-25);
+  font-size: 14px;
+  color: var(--red-600);
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: var(--white);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ----- Success ----- */
+.enquiry--success {
+  justify-items: center;
+  gap: 14px;
+  padding-block: clamp(40px, 6vw, 64px);
+  text-align: center;
+}
+.enquiry--success .enquiry__subtitle {
+  max-width: 420px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.enquiry--success strong {
+  color: var(--ink);
+}
+.enquiry__success-icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 6px;
+  border-radius: 50%;
+  background: var(--green-50);
+  color: var(--green);
+}
+
+@media (max-width: 560px) {
+  .enquiry {
+    border-radius: var(--radius-lg);
+  }
+  .enquiry__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 360px) {
+  .mode-options {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ----- Confirmation summary ----- */
+.enquiry--success .enquiry__title {
+  max-width: 440px;
+}
+.enquiry--success .enquiry__title:focus {
+  outline: none;
+}
+.enquiry__summary {
+  display: grid;
+  width: 100%;
+  max-width: 440px;
+  margin: 4px 0 10px;
+  padding: 6px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--mist-2);
+  text-align: left;
+}
+.enquiry__summary > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 10px;
+  font-size: 14px;
+}
+.enquiry__summary > div + div {
+  border-top: 1px solid var(--line);
+}
+.enquiry__summary dt {
+  flex: none;
+  color: var(--muted);
+}
+.enquiry__summary dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+  color: var(--ink);
+}
+
+/* Honeypot: off-screen for people, still visible to naive bots */
+.enquiry__hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

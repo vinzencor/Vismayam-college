@@ -1,0 +1,25 @@
+{
+  "name": "vismayam-college",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "node scripts/sitemap.mjs",
+    "build": "vite build",
+    "preview": "vite preview",
+    "seed": "node --env-file=.env scripts/seed.mjs",
+    "create-admin": "node --env-file=.env scripts/create-admin.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.117.3",
+    "lucide-react": "^1.54.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "vite": "^8.3.4"
+  }
+}
