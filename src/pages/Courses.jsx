@@ -113,7 +113,7 @@ export default function Courses() {
                 <a href="#all-courses" className="btn btn--primary">
                   Browse all courses
                 </a>
-                <Link to="/contact" className="btn btn--outline">
+                <Link to="/contact#enquiry-form" className="btn btn--outline">
                   Talk to an advisor
                 </Link>
               </div>
@@ -279,7 +279,7 @@ export default function Courses() {
                 <button type="button" className="btn btn--outline btn--sm" onClick={() => setParams({}, { replace: true })}>
                   Reset filters
                 </button>
-                <Link to="/contact" className="btn btn--primary btn--sm">
+                <Link to="/contact#enquiry-form" className="btn btn--primary btn--sm">
                   Ask an advisor
                 </Link>
               </div>
@@ -336,7 +336,7 @@ export default function Courses() {
                 Share your goals and schedule. We'll recommend the best-fit course—no pressure, no generic sales pitch.
               </p>
             </div>
-            <Link to="/contact" className="btn btn--primary btn--lg btn--glow">
+            <Link to="/contact#enquiry-form" className="btn btn--primary btn--lg btn--glow">
               Ask a course advisor <ArrowRight size={18} />
             </Link>
           </Reveal>

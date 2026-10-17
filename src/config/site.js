@@ -42,16 +42,16 @@ export const footerLinks = [
       { label: 'All courses', to: '/courses' },
       { label: 'Career tracks', to: '/courses?track=career' },
       { label: 'Student stories', to: '/#stories' },
-      { label: 'For teams', to: '/contact' },
+      { label: 'For teams', to: '/contact#enquiry-form' },
     ],
   },
   {
     title: 'Support',
     links: [
-      { label: 'Enquire now', to: '/contact' },
-      { label: 'FAQs', to: '/contact' },
-      { label: 'Contact us', to: '/contact' },
-      { label: 'Learning help', to: '/contact' },
+      { label: 'Enquire now', to: '/contact#enquiry-form' },
+      { label: 'FAQs', to: '/contact#enquiry-form' },
+      { label: 'Contact us', to: '/contact#enquiry-form' },
+      { label: 'Learning help', to: '/contact#enquiry-form' },
     ],
   },
   {
@@ -59,8 +59,8 @@ export const footerLinks = [
     links: [
       { label: 'About Vismayam College', to: '/' },
       { label: 'Our mentors', to: '/courses' },
-      { label: 'Careers', to: '/contact' },
-      { label: 'Privacy', to: '/contact' },
+      { label: 'Careers', to: '/contact#enquiry-form' },
+      { label: 'Privacy', to: '/contact#enquiry-form' },
     ],
   },
 ]

@@ -107,7 +107,7 @@ export default function CourseDetail() {
   if (loading) return <DetailSkeleton />
   if (!course) return <NotFound message="We couldn't find that course. It may have moved or been renamed." />
 
-  const enquireHref = `/contact?course=${course.slug}`
+  const enquireHref = `/contact?course=${course.slug}#enquiry-form`
   const related = (allCourses ?? [])
     .filter((c) => c.slug !== course.slug)
     .sort((a, b) => (b.category === course.category) - (a.category === course.category) || b.popularity - a.popularity)

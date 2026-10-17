@@ -4,6 +4,10 @@
   padding-bottom: clamp(56px, 6vw, 80px);
 }
 
+#enquiry-form {
+  scroll-margin-top: calc(var(--header-h) + 24px);
+}
+
 .contact-hero__grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);

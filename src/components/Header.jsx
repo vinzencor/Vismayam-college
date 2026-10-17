@@ -62,7 +62,7 @@ export function Header() {
           <a href={site.phoneHref} className="site-header__phone">
             {site.phone}
           </a>
-          <Link to="/contact" className="btn btn--primary btn--sm site-header__cta">
+          <Link to="/contact#enquiry-form" className="btn btn--primary btn--sm site-header__cta">
             Enquire now <ArrowUpRight size={16} strokeWidth={2.4} />
           </Link>
           <button
@@ -94,7 +94,7 @@ export function Header() {
           <a href={site.phoneHref} className="btn btn--outline btn--block">
             <Phone size={16} /> {site.phone}
           </a>
-          <Link to="/contact" className="btn btn--primary btn--block">
+          <Link to="/contact#enquiry-form" className="btn btn--primary btn--block">
             Enquire now <ArrowUpRight size={16} strokeWidth={2.4} />
           </Link>
         </div>

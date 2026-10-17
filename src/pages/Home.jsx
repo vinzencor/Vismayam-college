@@ -287,7 +287,7 @@ export default function Home() {
             </p>
           </div>
           <div className="cta-band__actions">
-            <Link to="/contact" className="btn btn--white">
+            <Link to="/contact#enquiry-form" className="btn btn--white">
               Enquire now <ArrowUpRight size={16} strokeWidth={2.4} />
             </Link>
             <Link to="/courses" className="btn btn--ghost-light">

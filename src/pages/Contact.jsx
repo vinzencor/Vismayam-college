@@ -1,4 +1,5 @@
-import { useSearchParams } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useLocation, useSearchParams } from 'react-router-dom'
 import { Check, Clock, Mail, MessageCircle, Phone, ShieldCheck, Star } from 'lucide-react'
 import { EnquiryForm } from '../components/EnquiryForm.jsx'
 import { Img } from '../components/Img.jsx'
@@ -38,8 +39,14 @@ const promises = [
 
 function focusForm() {
   const form = document.getElementById('enquiry-form')
-  form?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-  form?.querySelector('input')?.focus({ preventScroll: true })
+  if (!form) return
+
+  const header = document.querySelector('.site-header')
+  const headerHeight = header ? header.getBoundingClientRect().height : 72
+  const top = form.getBoundingClientRect().top + window.scrollY - headerHeight - 16
+
+  window.scrollTo({ top, behavior: 'smooth' })
+  form.querySelector('input')?.focus({ preventScroll: true })
 }
 
 export default function Contact() {
@@ -48,7 +55,25 @@ export default function Contact() {
     'Tell us which course you’re considering and a Vismayam College advisor will reply within 2 working hours by WhatsApp or call.',
   )
   const [params] = useSearchParams()
+  const location = useLocation()
   const defaultCourse = params.get('course') ?? ''
+
+  useEffect(() => {
+    if (!window.matchMedia('(max-width: 768px)').matches) return
+
+    const form = document.getElementById('enquiry-form')
+    if (!form) return
+
+    const frame = window.requestAnimationFrame(() => {
+      const header = document.querySelector('.site-header')
+      const offset = header ? header.offsetHeight + 16 : 16
+      const top = form.getBoundingClientRect().top + window.scrollY - offset
+      window.scrollTo({ top, behavior: 'smooth' })
+      form.querySelector('input')?.focus({ preventScroll: true })
+    })
+
+    return () => window.cancelAnimationFrame(frame)
+  }, [location.pathname, location.hash, defaultCourse])
 
   return (
     <>
