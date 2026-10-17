@@ -12,7 +12,7 @@ import { createClient } from 'npm:@supabase/supabase-js@2'
 
 const ALLOWED_ORIGINS = (
   Deno.env.get('ALLOWED_ORIGINS') ??
-  'https://vismayamcollege.com,https://www.vismayamcollege.com,http://localhost:5173,http://localhost:4173'
+  'https://vismayamcollege.com,https://www.vismayamcollege.com,https://vismayam-college.vercel.app,http://localhost:5173,http://localhost:4173'
 )
   .split(',')
   .map((origin) => origin.trim())
@@ -38,9 +38,18 @@ type Enquiry = {
   page_url: string | null
 }
 
+function isAllowedOrigin(origin: string | null): boolean {
+  if (!origin) return false
+
+  const trimmed = origin.trim()
+  return ALLOWED_ORIGINS.includes(trimmed) || trimmed.endsWith('.vercel.app')
+}
+
 function corsHeaders(origin: string | null): Record<string, string> {
+  const allowedOrigin = isAllowedOrigin(origin) ? origin! : ALLOWED_ORIGINS[0]
+
   return {
-    'Access-Control-Allow-Origin': origin && ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0],
+    'Access-Control-Allow-Origin': allowedOrigin,
     'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     Vary: 'Origin',
